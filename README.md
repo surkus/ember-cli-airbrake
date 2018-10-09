@@ -1,9 +1,11 @@
 # ember-cli-airbrake
 [![Build Status](https://travis-ci.org/201-created/ember-cli-airbrake.svg?branch=master)](https://travis-ci.org/201-created/ember-cli-airbrake)
+==============================================================================
 
 ember-cli-airbrake is an [Ember CLI](http://www.ember-cli.com/) addon for integrating the [Airbrake JS](https://github.com/airbrake/airbrake-js) error notifier into your app.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
  * install the addon: `ember install ember-cli-airbrake`
  * update your `config/environment.js` with an `airbrake` object that includes `projectId` and `projectKey`:
@@ -45,7 +47,8 @@ module.exports = function(environment) {
 };
 ```
 
-## Usage
+Usage
+------------------------------------------------------------------------------
 
 After installing the addon and configuring it properly, errors will be reported to airbrake.
 If you want to use the airbrake client to explicitly notify errors, you can use the exposed airbrake service.
@@ -97,3 +100,41 @@ In any environment where `config.airbrake` is not set (such as your test environ
 the error handlers for airbrake notification will not be set up. The `airbrake` service will still
 exist, but all its methods will be no-ops. This way your tests will still run happily even
 if they use, e.g. `airbrake.setSession` to set user session information.
+
+```
+ember install my-addon
+```
+
+
+Contributing
+------------------------------------------------------------------------------
+
+### Installation
+
+* `git clone <repository-url>`
+* `cd my-addon`
+* `npm install`
+
+### Linting
+
+* `npm run lint:hbs`
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+
+### Running tests
+
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `ember try:each` – Runs the test suite against multiple Ember versions
+
+### Running the dummy application
+
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
