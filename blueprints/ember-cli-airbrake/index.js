@@ -4,7 +4,8 @@ module.exports = {
 
   afterInstall() {
     return this.addPackagesToProject([
-      { name: 'airbrake-js', target: '~1.6.3' }
+      { name: 'airbrake-js', target: '~1.6.3' },
+      { name: 'cross-fetch', target: '>=2' }
     ]);
   }
 };
