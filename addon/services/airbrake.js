@@ -1,12 +1,11 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import getClient from '../utils/get-client';
 import setEnvironment from '../filters/environment';
 import loggerReporter from '../reporters/logger';
 import setSession from '../filters/session';
+import { getOwner } from '@ember/application';
 
-const { getOwner } = Ember;
-
-export default Ember.Service.extend({
+export default Service.extend({
   init: function() {
     this._super(...arguments);
     this.client = this._getClient();

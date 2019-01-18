@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Ember from '@ember';
 import config from '../config/environment';
 
 function registerEmberOnError(notifyFn) {
-  let originalOnError = Ember.onerror || Ember.K;
+  let originalOnError = Ember.onerror || function() {};
   Ember.onerror = function(err) {
     originalOnError(err);
     notifyFn(err);
@@ -37,7 +37,7 @@ function initialize(instance) {
     airbrake.notify(error);
   };
 
-  if (!!config.airbrake) {
+  if (config.airbrake) {
     registerEmberOnError(notifyFn);
     registerWindowOnError(notifyFn);
   }
