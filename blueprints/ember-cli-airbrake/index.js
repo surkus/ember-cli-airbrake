@@ -1,12 +1,10 @@
-/* jshint node: true */
-'use strict';
-
+/* eslint-env node */
 module.exports = {
-  normalizeEntityName: function() {},
+  description: 'Add airbrake js to package.json',
 
-  afterInstall: function() {
+  afterInstall() {
     return this.addPackagesToProject([
-      { name: 'airbrake-js', target: '0.9.8' }
+      { name: 'airbrake-js', target: '~1.6.3' }
     ]);
   }
 };

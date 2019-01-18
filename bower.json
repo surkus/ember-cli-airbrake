@@ -1,6 +1,0 @@
-{
-  "name": "ember-cli-airbrake",
-  "dependencies": {
-    "airbrake-js-client": "airbrake-js#~0.5.8"
-  }
-}

@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
-export default Ember.Route.extend({
-  airbrake: Ember.inject.service(),
+export default Route.extend({
+  airbrake: service(),
 
   setupController(controller) {
-    controller.set('airbrakeService', this.get('airbrake'));
+    controller.set('airbrakeService', this.airbrake);
   }
 });
