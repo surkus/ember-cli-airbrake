@@ -1,1 +1,1 @@
-export { default } from '@sukus/ember-cli-airbrake/services/airbrake';
+export { default } from '@surkus/ember-cli-airbrake/services/airbrake';

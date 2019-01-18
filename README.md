@@ -4,6 +4,11 @@
 
 This was originally written by [201 Created](https://github.com/201-created/ember-cli-airbrake) and has since been upgraded to work with Ember CLI >= 3.7.1 and support the newest airbrake client library.
 
+### Compatibility
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+
 ### Installation
 
 From inside your ember-cli project, run the following:

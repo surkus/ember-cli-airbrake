@@ -1,12 +1,18 @@
-import { module, test } from 'qunit';
-import { setupTest } from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-module('Unit | Service | airbrake', function(hooks) {
-  setupTest(hooks);
+moduleFor('service:airbrake', 'Unit | Service | airbrake', {
+  // Specify the other units that are required for this test.
+  needs: ['config:environment']
+});
 
-  // Replace this with your real tests.
-  test('it exists', function(assert) {
-    let service = this.owner.lookup('service:airbrake');
-    assert.ok(service);
+test('it exists', function(assert) {
+  let service = this.subject();
+  assert.ok(service);
+});
+
+['addFilter', 'setSession', 'addReporter', 'notify'].forEach(methodName => {
+  test(`it exposes #${methodName}`, function(assert) {
+    let service = this.subject();
+    assert.ok(service[methodName]);
   });
 });
