@@ -9,11 +9,9 @@ let NullClient = EmberObject.extend({
   setSession() {}
 });
 
-function validateAirbrakeConfig(airbrakeConfig) {
-  assert('airbrake projectId must be set in config',
-               !!airbrakeConfig.projectId);
-  assert('airbrake projectKey must be set in config',
-               !!airbrakeConfig.projectKey);
+function validateAirbrakeConfig(config) {
+  assert('airbrake projectId must be set in config', !!config.projectId);
+  assert('airbrake projectKey must be set in config', !!config.projectKey);
 }
 
 export default function getClient(config, options={}) {

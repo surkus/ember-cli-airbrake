@@ -10,7 +10,7 @@ test('it exists', function(assert) {
   assert.ok(service);
 });
 
-['addFilter', 'setSession', 'addReporter', 'notify'].forEach(methodName => {
+['addFilter', 'setSession', 'notify'].forEach(methodName => {
   test(`it exposes #${methodName}`, function(assert) {
     let service = this.subject();
     assert.ok(service[methodName]);
