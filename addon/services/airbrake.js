@@ -1,7 +1,6 @@
 import Service from '@ember/service';
 import getClient from '../utils/get-client';
 import setEnvironment from '../filters/environment';
-import loggerReporter from '../reporters/logger';
 import setSession from '../filters/session';
 import { getOwner } from '@ember/application';
 
@@ -21,11 +20,6 @@ export default Service.extend({
     this.client.addFilter(...args);
   },
 
-  // airbrakeJs client API
-  addReporter(...args) {
-    this.client.addReporter(...args);
-  },
-
   // convenience API
   setSession(session) {
     this.client.addFilter(setSession(session));
@@ -36,7 +30,6 @@ export default Service.extend({
     let config = getOwner(this).resolveRegistration('config:environment');
 
     let client = getClient(config, {
-      reporters: [loggerReporter],
       filters:   [setEnvironment(config.environment)]
     });
 

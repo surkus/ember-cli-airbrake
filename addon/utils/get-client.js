@@ -22,17 +22,10 @@ export default function getClient(config, options={}) {
   } else {
     validateAirbrakeConfig(airbrakeConfig);
 
-    let projectId  = airbrakeConfig.projectId,
-        projectKey = airbrakeConfig.projectKey;
+    const { projectId, projectKey } = airbrakeConfig.projectId;
     let client = new airbrakeJs.Client({projectId, projectKey});
-    if (airbrakeConfig.host) {
-      client.setHost(airbrakeConfig.host);
-    }
+    let filters = options.filters || [];
 
-    let reporters = options.reporters || [],
-        filters   = options.filters || [];
-
-    reporters.forEach(r => client.addReporter(r));
     filters.forEach(f => client.addFilter(f));
 
     return client;

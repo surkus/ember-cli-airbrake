@@ -56,7 +56,6 @@ The airbrake service exposes the following methods:
 
   * `notify(error)` -- if you want to explicitly notify errors. Normally this will not be necessary
   * `addFilter(filterFn)` -- refer to the [airbrake client js documentation](https://github.com/airbrake/airbrake-js)
-  * `addReporter(reporter)` -- refer to the [airbrake client js documentation](https://github.com/airbrake/airbrake-js)
   * `setSession(sessionData)` -- adds a filter to the client that sets the session data to all future error notifications
 
 ### Examples
