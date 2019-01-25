@@ -35,8 +35,7 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.2",
     "cross-fetch": "^3.0.0",
-    "ember-cli-babel": "^7.1.2",
-    "resolve": "^1.10.0"
+    "ember-cli-babel": "^7.1.2"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
