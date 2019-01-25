@@ -12,17 +12,17 @@ export default Service.extend({
 
   // airbrakeJs client API
   notify(...args) {
-    this.client.notify(...args);
+    return this.client.notify(...args);
   },
 
   // airbrakeJs client API
   addFilter(...args) {
-    this.client.addFilter(...args);
+    return this.client.addFilter(...args);
   },
 
   // convenience API
   setSession(session) {
-    this.client.addFilter(setSession(session));
+    return this.client.addFilter(setSession(session));
   },
 
   // private

@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from '../config/environment';
+import { logNotice } from '@surkus/ember-cli-airbrake/reporters/logger';
 
 function registerEmberOnError(notifyFn) {
   let originalOnError = Ember.onerror || function() {};
@@ -34,7 +35,10 @@ function initialize(instance) {
 
   let notifyFn = (error) => {
     let airbrake = lookup('service:airbrake');
-    airbrake.notify(error);
+
+    airbrake.notify(error).then((notice) => {
+      logNotice(notice);
+    });
   };
 
   if (config.airbrake) {

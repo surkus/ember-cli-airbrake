@@ -4,6 +4,11 @@ import EmberObject from '@ember/object';
 import { assert } from '@ember/debug';
 import { isPresent } from '@ember/utils';
 
+const requiredConfigKeys = [
+  'projectId',
+  'projectKey'
+];
+
 let NullClient = EmberObject.extend({
   notify() {},
   addFilter() {},
@@ -11,8 +16,9 @@ let NullClient = EmberObject.extend({
 });
 
 function validateAirbrakeConfig(config) {
-  assert('airbrake projectId must be set in config', isPresent(config.projectId));
-  assert('airbrake projectKey must be set in config', isPresent(config.projectKey));
+  requiredConfigKeys.forEach((key) => {
+    assert(`airbrake config is missing ${key}`, isPresent(config[key]));
+  })
 }
 
 export default function getClient(config, options={}) {
