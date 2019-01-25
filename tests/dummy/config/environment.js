@@ -17,6 +17,12 @@ module.exports = function(environment) {
       }
     },
 
+    airbrake: {
+      projectId: 123456,
+      projectKey: '123hh13jh4fkjjkadydysd',
+      environment
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

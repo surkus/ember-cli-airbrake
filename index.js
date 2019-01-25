@@ -14,7 +14,7 @@ module.exports = {
 
     const vendorPath = `vendor/${this.name}`;
     const host = this._findHost();
-    const filePath = path.join(vendorPath, 'client.js');
+    const filePath = path.join(vendorPath, 'airbrake-mod.js');
 
     host.import(filePath);
   },
@@ -25,7 +25,7 @@ module.exports = {
     this._removeRefToSourceMap(airbrakePath);
 
     let airbrakeJs = new Funnel(airbrakePath, {
-      files: ['client.js'],
+      files: ['airbrake-mod.js'],
       destDir: this.name
     });
 
@@ -39,12 +39,13 @@ module.exports = {
 
   async _removeRefToSourceMap(jsPath) {
     const filePath = path.join(jsPath, 'client.js')
+    const newFilePath = path.join(jsPath, 'airbrake-mod.js')
 
     await fs.readFile(filePath, 'utf8', function(err, data) {
       let file = data.split('\n');
 
       file.pop();
-      fs.writeFileSync(filePath, file.join('\n'));
+      fs.writeFileSync(newFilePath, file.join('\n'));
     });
   },
 
